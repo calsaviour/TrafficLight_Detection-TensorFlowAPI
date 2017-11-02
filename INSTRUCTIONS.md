@@ -27,6 +27,6 @@ $ sudo cp /home/wpq/tfexample_decoder.py ./tfexample_decoder.py
 
 
 ## Run
-protoc object_detection/protos/*.proto --python_out=.
-export PYTHONPATH=$(which python):`pwd`:`pwd`/slim
+`protoc object_detection/protos/*.proto --python_out=.`
+`export PYTHONPATH=$(which python):`pwd`:`pwd`/slim`
 1. python object_detection/train.py --pipeline_config_path=config/ssd_inception-traffic-udacity_sim.config --train_dir=data/sim_training_data/sim_data_capture

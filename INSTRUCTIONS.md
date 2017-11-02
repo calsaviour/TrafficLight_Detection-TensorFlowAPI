@@ -3,9 +3,9 @@
 
 ### Download dataset and setup the directory
 1. [Drive location](https://drive.google.com/file/d/0B-Eiyn-CUQtxdUZWMkFfQzdObUE/view?usp=sharing)   (This step is also in README.md)
-2. Assume the tensor model project is in the home directory. unzip the  under ~/models/research/object_detection/data
+2. Assume the tensor model project is in the home directory. unzip the  under ~/models/research/data
 3. Move config folder (~/TrafficLight_Detection-TensorFlowAPI/config) to under ~/models/research/
-4. Move real_data.record and sim_data.record to ~/models/research/object_detection/
+4. Move the files label_map.pbtxt, real_data.record and sim_data.record in the directory (~/TrafficLight_Detection-TensorFlowAPI/)  to ~/models/research/
 
 
 
@@ -27,4 +27,6 @@ $ sudo cp /home/wpq/tfexample_decoder.py ./tfexample_decoder.py
 
 
 ## Run
+protoc object_detection/protos/*.proto --python_out=.
+export PYTHONPATH=$(which python):`pwd`:`pwd`/slim
 1. python object_detection/train.py --pipeline_config_path=config/ssd_inception-traffic-udacity_sim.config --train_dir=data/sim_training_data/sim_data_capture
